@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-bg: #0A0A0B;
+  --color-brand-navy: #200F8C;
+  --color-brand-yellow: #D4D93F;
+  --font-display: var(--font-syne), sans-serif;
+  --font-sans: var(--font-dm-sans), sans-serif;
+}
+
+/*
+  Light mode — override the Tailwind CSS variables on the html element.
+  Tailwind v4 utility classes reference these variables (e.g. bg-brand-bg compiles to
+  background-color: var(--color-brand-bg)), so overriding the variable here propagates
+  automatically to every component that uses that utility — no component changes needed.
+*/
+html:not(.dark) {
+  --color-brand-bg: #f0f0ed;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg font-sans antialiased;
+    color: #ffffff;
+  }
+
+  html:not(.dark) body {
+    color: #0A0A0B;
+  }
+}
+
+/*
+  Light mode text overrides.
+  Outside @layer so they sit above Tailwind's utilities layer in the cascade.
+  Selector specificity (0,2,1) also beats utility classes (0,1,0).
+*/
+html:not(.dark) .text-white {
+  color: #0A0A0B;
+}
+
+html:not(.dark) .text-neutral-300 {
+  color: #2a2a2a;
+}
+
+html:not(.dark) .text-neutral-400 {
+  color: #383838;
+}
+
+html:not(.dark) .text-neutral-500 {
+  color: #555555;
+}
+
+html:not(.dark) .text-neutral-600 {
+  color: #6b6b6b;
+}
+
+@utility glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+@utility text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+html:not(.dark) .text-stroke {
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgba(212, 217, 63, 0.3);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
