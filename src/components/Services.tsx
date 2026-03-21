@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Globe, Radio, Zap, Settings, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const Services = () => {
   const t = useTranslations("services");
@@ -10,25 +10,25 @@ const Services = () => {
   const services = [
     {
       id: "01",
-      icon: <Globe className="w-8 h-8" />,
+      icon: "🌐",
       title: t("items.0.title"),
       desc: t("items.0.description"),
     },
     {
       id: "02",
-      icon: <Radio className="w-8 h-8" />,
+      icon: "📡",
       title: t("items.1.title"),
       desc: t("items.1.description"),
     },
     {
       id: "03",
-      icon: <Zap className="w-8 h-8" />,
+      icon: "⚡",
       title: t("items.2.title"),
       desc: t("items.2.description"),
     },
     {
       id: "04",
-      icon: <Settings className="w-8 h-8" />,
+      icon: "🛠",
       title: t("items.3.title"),
       desc: t("items.3.description"),
     },
@@ -36,6 +36,10 @@ const Services = () => {
 
   return (
     <section id="services" className="bg-brand-bg relative overflow-hidden border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10 text-center">
+        <p className="type-eyebrow text-brand-yellow mb-6 font-sans text-xs font-bold tracking-[0.12em] uppercase">{t("eyebrow")}</p>
+        <h2 className="type-h2 text-white font-display text-5xl font-normal leading-[1.05] tracking-[-0.05em] uppercase">{t("headline")} <span className="text-brand-yellow">{t("headline_accent")}</span></h2>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-[1px] bg-white/5 border-b border-white/5">
         {services.map((service, index) => (
           <ServiceCard key={index} {...service} />
@@ -51,7 +55,7 @@ const ServiceCard = ({ id, icon, title, desc }: any) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="group relative bg-brand-bg p-8 md:p-16 h-full min-h-[400px] flex flex-col justify-between overflow-hidden cursor-default transition-colors duration-500"
+      className="group relative bg-[#08080E] border border-white/5 hover:border-[#D4D93F]/20 p-8 md:p-16 h-full min-h-[400px] flex flex-col justify-between overflow-hidden cursor-default transition-colors duration-500"
     >
       {/* Hover Background Sweep */}
       <motion.div
@@ -65,13 +69,11 @@ const ServiceCard = ({ id, icon, title, desc }: any) => {
         <span className="text-[120px] font-display font-black text-white/3 absolute -top-10 -left-6 leading-none pointer-events-none group-hover:text-white/5 transition-colors">
           {id}
         </span>
-        <div className="mb-10 text-brand-yellow group-hover:text-white transition-colors">
-          {icon}
-        </div>
-        <h3 className="text-3xl md:text-5xl font-display uppercase mb-6 tracking-tighter group-hover:text-white transition-colors leading-[0.95]">
+        <span className="text-3xl mb-4 block">{icon}</span>
+        <h3 className="type-h3-lg mb-6 group-hover:text-white transition-colors font-display text-[30px] font-normal leading-[1.1] tracking-[-0.04em] uppercase">
           {title}
         </h3>
-        <p className="text-neutral-400 text-base md:text-lg max-w-sm leading-relaxed group-hover:text-white/80 transition-colors">
+        <p className="type-body text-neutral-400 max-w-sm group-hover:text-white/80 transition-colors font-sans text-base font-normal leading-[1.65]">
           {desc}
         </p>
       </div>

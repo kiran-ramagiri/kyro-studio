@@ -5,33 +5,50 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { Menu, X, Globe, Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+
+const SECTION_IDS = ["services", "why-kyro", "process", "contact"];
 
 const Nav = () => {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Scroll-spy: highlight active section as user scrolls
+  useEffect(() => {
+    if (!mounted) return;
+    const observers: IntersectionObserver[] = [];
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: "-30% 0px -60% 0px" }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, [mounted]);
 
   const navLinks = [
     { name: t("services"), href: "#services" },
     { name: t("why"), href: "#why-kyro" },
     { name: t("process"), href: "#process" },
+    { name: t("contact"), href: "#contact" },
   ];
 
   const toggleLocale = () => {
@@ -61,12 +78,18 @@ const Nav = () => {
           />
         </Link>
 
+        {/* Desktop Links */}
         <div className="hidden lg:flex items-center space-x-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[15px] font-medium tracking-tight hover:text-brand-yellow transition-colors"
+              className={cn(
+                "type-nav transition-colors font-sans text-sm font-normal leading-[1.5]",
+                activeSection === link.href.slice(1)
+                  ? "text-brand-yellow"
+                  : "hover:text-brand-yellow"
+              )}
             >
               {link.name}
             </Link>
@@ -74,29 +97,21 @@ const Nav = () => {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <button
-            onClick={toggleLocale}
-            className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-current text-xs font-bold uppercase hover:bg-white hover:text-black dark:hover:bg-brand-yellow dark:hover:text-black transition-all"
-          >
-            <Globe className="w-3.5 h-3.5" />
-            <span>{locale === "en" ? "HR" : "EN"}</span>
-          </button>
-
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-          >
-            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-
-          <Link
-            href="https://calendar.app.google/SkMr99BXaF5DhGn98"
-            target="_blank"
-            className="bg-brand-yellow text-brand-bg px-5 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform"
-          >
-            {t("cta")}
-          </Link>
+        <div className="hidden lg:flex items-center">
+          {/* Language switcher with tooltip */}
+          <div className="relative group">
+            <button
+              onClick={toggleLocale}
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-current text-xs font-bold uppercase hover:bg-white hover:text-black dark:hover:bg-brand-yellow dark:hover:text-black transition-all"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{locale === "en" ? "HR" : "EN"}</span>
+            </button>
+            {/* Tooltip */}
+            <span className="pointer-events-none absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-white/10 backdrop-blur-sm px-2.5 py-1 text-[11px] text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              {locale === "en" ? "Switch to Croatian" : "Switch to English"}
+            </span>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -122,7 +137,10 @@ const Nav = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-4xl font-display uppercase tracking-tighter"
+                className={cn(
+                  "text-4xl font-display uppercase transition-colors",
+                  activeSection === link.href.slice(1) && "text-brand-yellow"
+                )}
               >
                 {link.name}
               </Link>
@@ -135,17 +153,10 @@ const Nav = () => {
                 <Globe />
                 <span>{locale === "en" ? "Hrvatski" : "English"}</span>
               </button>
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex items-center space-x-2 text-xl"
-              >
-                {theme === "dark" ? <Sun /> : <Moon />}
-                <span>{theme === "dark" ? t("lightMode") : t("darkMode")}</span>
-              </button>
               <Link
                 href="https://calendar.app.google/SkMr99BXaF5DhGn98"
                 target="_blank"
-                className="bg-brand-yellow text-brand-bg text-center py-5 rounded-xl text-lg font-display uppercase font-bold tracking-tight"
+                className="bg-brand-yellow text-brand-bg text-center py-5 rounded-xl type-button"
               >
                 {t("cta")}
               </Link>

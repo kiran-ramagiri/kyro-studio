@@ -14,14 +14,14 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="py-32 px-6 bg-brand-bg relative overflow-hidden">
+    <section id="process" className="py-32 px-6 bg-[#050508] min-h-[500px] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-yellow font-bold uppercase tracking-widest text-sm mb-6"
+            className="type-eyebrow text-brand-yellow mb-6 font-sans text-xs font-bold tracking-[0.12em] uppercase"
           >
             {t("eyebrow")}
           </motion.p>
@@ -30,7 +30,7 @@ const Process = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-display uppercase leading-[0.9] tracking-tighter"
+            className="type-h2 font-display text-5xl font-normal leading-[1.05] tracking-[-0.05em] uppercase"
           >
             {t("headline")} <span className="text-brand-yellow font-bold">{t("headline_accent")}</span>
           </motion.h2>
@@ -53,13 +53,13 @@ const Process = () => {
                 {/* Dot */}
                 <div className="w-6 h-6 rounded-full bg-brand-yellow mb-8 shadow-[0_0_15px_rgba(212,217,63,0.6)] group-hover:scale-150 transition-transform duration-300" />
                 
-                <span className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">
+                <span className="type-eyebrow text-neutral-500 mb-2 font-sans text-xs font-bold tracking-[0.12em] uppercase">
                   {step.number}
                 </span>
-                <h3 className="text-2xl font-display uppercase mb-4 text-white tracking-tight">
+                <h3 className="type-h3-sm mb-4 text-white font-display text-2xl font-normal leading-[1.2] tracking-[-0.025em] uppercase">
                   {step.title}
                 </h3>
-                <p className="text-neutral-400 group-hover:text-neutral-300 transition-colors leading-relaxed">
+                <p className="type-body text-neutral-400 group-hover:text-neutral-300 transition-colors font-sans text-base font-normal leading-[1.65] text-center md:text-left">
                   {step.desc}
                 </p>
               </motion.div>

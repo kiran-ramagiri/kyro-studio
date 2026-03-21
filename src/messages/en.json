@@ -8,15 +8,14 @@
     "services": "Services",
     "why": "Why Kyro",
     "process": "Process",
-    "cta": "Book a Call",
-    "lightMode": "Light Mode",
-    "darkMode": "Dark Mode"
+    "contact": "Contact",
+    "cta": "Book a Call"
   },
   "hero": {
     "eyebrow": "Web · Marketing · AI Automation",
-    "headline_1": "We Build",
-    "headline_2": "Websites That",
-    "headline_3": "Work Hard.",
+    "headline_1": "Your Vision.",
+    "headline_2": "Our Systems.",
+    "headline_3": "Real Growth.",
     "tagline_primary": "AI-powered growth for ambitious brands.",
     "tagline_secondary": "We build the systems that scale your business.",
     "differentiator": "Strategy AND implementation. Web, marketing and AI under one roof. Results in weeks, not months.",

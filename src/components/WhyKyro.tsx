@@ -24,7 +24,7 @@ const WhyKyro = () => {
   ];
 
   return (
-    <section id="why-kyro" className="py-32 px-6 bg-brand-bg relative overflow-hidden">
+    <section id="why-kyro" className="py-24 px-6 bg-[#08080E] relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: Stats Grid */}
         <div className="grid grid-cols-2 gap-1 px-4">
@@ -35,19 +35,19 @@ const WhyKyro = () => {
                 whileHover={{ height: "100%" }}
                 className="absolute left-0 top-0 w-1 bg-brand-yellow transition-all duration-300"
               />
-              <div className="text-5xl md:text-6xl font-display font-black text-white mb-2">
+              <div className="type-stat text-white mb-2 font-display text-[48px] font-black leading-[1.0] text-brand-yellow">
                 {stat.isInfinity ? (
-                  <span className="text-7xl">∞</span>
+                  <span>∞</span>
                 ) : (
                   <Counter value={stat.value} suffix={stat.suffix} />
                 )}
               </div>
-              <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 group-hover:text-brand-yellow transition-colors">
+              <p className="text-xs font-bold uppercase tracking-[0.12em] text-neutral-400 group-hover:text-brand-yellow transition-colors">
                 {stat.label}
               </p>
             </div>
           ))}
-          <p className="col-span-2 text-[10px] text-neutral-600 mt-4 uppercase tracking-tighter text-center">
+          <p className="col-span-2 type-legal text-neutral-500 mt-4 text-center font-sans text-xs font-normal leading-[1.5]">
             {t("stats_disclaimer")}
           </p>
         </div>
@@ -58,7 +58,7 @@ const WhyKyro = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-yellow font-bold uppercase tracking-widest text-sm mb-6"
+            className="type-eyebrow text-brand-yellow mb-6 font-sans text-xs font-bold tracking-[0.12em] uppercase"
           >
             {t("eyebrow")}
           </motion.p>
@@ -67,7 +67,7 @@ const WhyKyro = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-[clamp(3rem,6vw,5.5rem)] font-display uppercase leading-[0.9] tracking-tighter mb-10"
+            className="type-h2 mb-10 font-display text-5xl font-normal leading-[1.05] tracking-[-0.05em] uppercase"
           >
             {t("headline")} <span className="text-brand-yellow">{t("headline_accent")}</span>
           </motion.h2>
@@ -85,7 +85,7 @@ const WhyKyro = () => {
                 <div className="mt-1.5 text-brand-yellow shrink-0 group-hover:scale-125 transition-transform">
                   <ArrowRightIcon />
                 </div>
-                <p className="text-lg md:text-xl text-neutral-300 font-medium">
+                <p className="type-body text-neutral-300 font-sans text-base font-normal leading-[1.65]">
                   {bullet}
                 </p>
               </motion.div>

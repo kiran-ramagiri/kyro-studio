@@ -8,15 +8,14 @@
     "services": "Usluge",
     "why": "Zašto Kyro",
     "process": "Proces",
-    "cta": "Zakaži Poziv",
-    "lightMode": "Svijetli Način",
-    "darkMode": "Tamni Način"
+    "contact": "Kontakt",
+    "cta": "Zakaži Poziv"
   },
   "hero": {
     "eyebrow": "Web · Marketing · AI Automatizacija",
-    "headline_1": "Gradimo",
-    "headline_2": "Web Stranice Koje",
-    "headline_3": "Rade Posao.",
+    "headline_1": "Tvoja Vizija.",
+    "headline_2": "Naši Sustavi.",
+    "headline_3": "Pravi Rast.",
     "tagline_primary": "AI-potpomognut rast za ambiciozne brandove.",
     "tagline_secondary": "Gradimo sustave koji skaliraju tvoj biznis.",
     "differentiator": "Strategija I implementacija. Web, marketing i AI na jednom mjestu. Rezultati za tjedne, ne mjesece.",

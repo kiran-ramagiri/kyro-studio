@@ -28,7 +28,7 @@ const AiAutomation = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-brand-yellow font-bold uppercase tracking-widest text-sm mb-6"
+              className="type-eyebrow text-brand-yellow mb-6 font-sans text-xs font-bold tracking-[0.12em] uppercase"
             >
               {t("eyebrow")}
             </motion.p>
@@ -37,7 +37,7 @@ const AiAutomation = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-[clamp(3rem,6vw,5rem)] font-display uppercase leading-[0.9] tracking-tighter mb-8"
+              className="type-h2 mb-8 font-display text-5xl font-normal leading-[1.05] tracking-[-0.05em] uppercase"
             >
               {t("headline")} <span className="text-brand-yellow">{t("headline_accent")}</span>
             </motion.h2>
@@ -46,7 +46,7 @@ const AiAutomation = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed max-w-xl"
+              className="type-body-lead text-neutral-400 mb-10 max-w-xl font-sans text-lg font-normal leading-[1.65]"
             >
               {t("description")}
             </motion.p>
@@ -59,7 +59,7 @@ const AiAutomation = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1 }}
-                  className="px-6 py-2 rounded-full border border-brand-yellow/30 text-brand-yellow text-sm font-bold"
+                  className="px-6 py-2 rounded-full border border-brand-yellow/30 text-brand-yellow type-eyebrow font-sans text-xs font-bold tracking-[0.12em] uppercase"
                 >
                   {tool}
                 </motion.span>
@@ -80,7 +80,7 @@ const AiAutomation = () => {
                 <div className="w-10 h-10 rounded-lg bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4 group-hover:bg-brand-yellow group-hover:text-brand-bg transition-colors">
                   {icons[i]}
                 </div>
-                <p className="font-bold uppercase text-sm tracking-tight flex items-start gap-2">
+                <p className="type-capability flex items-start gap-2 font-sans text-[15px] font-medium leading-[1.65] normal-case">
                   <span className="text-brand-yellow">→</span>
                   {t(`capabilities.${i}`)}
                 </p>

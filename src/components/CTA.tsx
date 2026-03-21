@@ -29,7 +29,7 @@ const CTA = () => {
   };
 
   return (
-    <section className="py-32 px-6 bg-brand-bg relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 bg-brand-bg min-h-[500px] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-navy/20 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -40,7 +40,7 @@ const CTA = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-[clamp(4rem,9vw,8rem)] font-display font-black leading-[0.88] text-white uppercase mb-6 tracking-tighter"
+            className="type-h2 text-white mb-6 font-display text-5xl font-normal leading-[1.05] tracking-[-0.05em] uppercase"
           >
             {t("headline_1")} <span className="text-brand-yellow">{t("headline_accent")}</span> {t("headline_2")}
           </motion.h2>
@@ -49,7 +49,7 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed"
+            className="type-body-lead text-neutral-400 max-w-2xl mx-auto font-sans text-lg font-normal leading-[1.65]"
           >
             {t("subtext")}
           </motion.p>
@@ -70,7 +70,7 @@ const CTA = () => {
               <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-6">
                 <Calendar className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-display uppercase tracking-tight text-white mb-3">
+              <h3 className="type-h3-sm text-white mb-3 font-display text-[20px] font-normal leading-[1.2] tracking-[-0.025em] uppercase">
                 {t("card_call_title")}
               </h3>
               <p className="text-neutral-400 leading-relaxed">
@@ -81,14 +81,14 @@ const CTA = () => {
               <Link
                 href="https://calendar.app.google/SkMr99BXaF5DhGn98"
                 target="_blank"
-                className="group w-full bg-brand-yellow text-brand-bg px-8 py-4 rounded-full text-base font-display font-bold uppercase tracking-tight flex items-center justify-center gap-2 hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(212,217,63,0.2)]"
+                className="group w-full bg-brand-yellow text-brand-bg px-8 py-4 rounded-full type-button font-display font-bold uppercase tracking-[-0.025em] flex items-center justify-center gap-2 hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(212,217,63,0.2)]"
               >
                 {t("button")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="mailto:hello@kyrostudio.eu"
-                className="flex items-center justify-center gap-2 text-neutral-500 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold"
+                className="flex items-center justify-center gap-2 text-neutral-400 hover:text-white transition-colors text-sm"
               >
                 <Mail className="w-4 h-4" />
                 hello@kyrostudio.eu
@@ -107,7 +107,7 @@ const CTA = () => {
             {status === "success" ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center gap-4">
                 <CheckCircle className="w-12 h-12 text-brand-yellow" />
-                <h3 className="text-2xl font-display uppercase tracking-tight text-white">
+                <h3 className="type-h3-sm text-white">
                   {t("form.success_title")}
                 </h3>
                 <p className="text-neutral-400">{t("form.success_text")}</p>
@@ -123,13 +123,13 @@ const CTA = () => {
                 <div className="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-yellow">
                   <Send className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-display uppercase tracking-tight text-white">
+                <h3 className="type-h3-sm text-white font-display text-[20px] font-normal leading-[1.2] tracking-[-0.025em] uppercase">
                   {t("card_form_title")}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">
+                    <label className="block type-form-label text-neutral-500 mb-2 font-sans text-[11px] font-bold tracking-[0.12em] uppercase">
                       {t("form.name_label")}
                     </label>
                     <input
@@ -138,11 +138,11 @@ const CTA = () => {
                       value={form.name}
                       onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
                       placeholder={t("form.name_placeholder")}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors type-form-input font-sans text-[15px] font-normal"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">
+                    <label className="block type-form-label text-neutral-500 mb-2 font-sans text-[11px] font-bold tracking-[0.12em] uppercase">
                       {t("form.email_label")}
                     </label>
                     <input
@@ -151,13 +151,13 @@ const CTA = () => {
                       value={form.email}
                       onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                       placeholder={t("form.email_placeholder")}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors type-form-input font-sans text-[15px] font-normal"
                     />
                   </div>
                 </div>
 
                 <div className="flex-1 flex flex-col">
-                  <label className="block text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">
+                  <label className="block type-form-label text-neutral-500 mb-2 font-sans text-[11px] font-bold tracking-[0.12em] uppercase">
                     {t("form.message_label")}
                   </label>
                   <textarea
@@ -166,7 +166,7 @@ const CTA = () => {
                     value={form.message}
                     onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
                     placeholder={t("form.message_placeholder")}
-                    className="flex-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors text-sm resize-none"
+                    className="flex-1 w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-neutral-600 focus:outline-none focus:border-brand-yellow/50 transition-colors type-form-input resize-none font-sans text-[15px] font-normal"
                   />
                 </div>
 
@@ -177,7 +177,7 @@ const CTA = () => {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full border border-white/10 bg-white/5 hover:bg-brand-yellow hover:text-brand-bg hover:border-brand-yellow text-white px-8 py-4 rounded-full text-base font-display font-bold uppercase tracking-tight flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-full border border-white/10 bg-white/5 hover:bg-brand-yellow hover:text-brand-bg hover:border-brand-yellow text-white px-8 py-4 rounded-full type-button font-display font-bold uppercase tracking-[-0.025em] flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? t("form.sending") : t("form.submit")}
                   {status !== "loading" && <Send className="w-4 h-4" />}

@@ -35,7 +35,7 @@ const Footer = () => {
                 className="object-contain"
               />
             </Link>
-            <p className="text-sm font-sans tracking-widest uppercase text-neutral-500 mb-8">
+            <p className="type-eyebrow text-neutral-500 mb-8 font-sans text-xs font-bold tracking-[0.12em] uppercase">
               Web · Marketing · AI Automation
             </p>
             <div className="flex space-x-6">
@@ -57,24 +57,24 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold uppercase text-sm mb-6 text-white">LINKS</h4>
+            <h4 className="type-eyebrow mb-6 text-white font-sans text-xs font-bold tracking-[0.12em] uppercase">LINKS</h4>
             <div className="flex flex-col space-y-4">
-              <Link href="#services" className="text-neutral-400 hover:text-brand-yellow transition-colors">Services</Link>
-              <Link href="#why-kyro" className="text-neutral-400 hover:text-brand-yellow transition-colors">Why Kyro</Link>
-              <Link href="#process" className="text-neutral-400 hover:text-brand-yellow transition-colors">Process</Link>
+              <Link href="#services" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Services</Link>
+              <Link href="#why-kyro" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Why Kyro</Link>
+              <Link href="#process" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Process</Link>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-white/5 text-xs text-neutral-500 gap-6">
-          <p>© {currentYear} Kyro Studio. All rights reserved.</p>
+          <p className="type-copyright font-sans text-xs font-normal leading-[1.5]">© {currentYear} Kyro Studio. All rights reserved.</p>
           <div className="flex space-x-8">
             {legalLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-brand-yellow transition-colors"
+                className="type-legal hover:text-brand-yellow transition-colors font-sans text-xs font-normal leading-[1.5]"
               >
                 {link.name}
               </Link>

@@ -30,7 +30,7 @@ const Marquee = () => {
         >
           {duplicatedItems.map((item, idx) => (
             <div key={idx} className="flex items-center">
-              <span className="text-brand-bg font-display text-lg uppercase tracking-tight mx-8">
+              <span className="type-marquee text-brand-bg mx-8 font-display text-[13px] font-bold tracking-[0.12em] uppercase">
                 {item}
               </span>
               <span className="text-brand-bg/40 text-lg">◆</span>
