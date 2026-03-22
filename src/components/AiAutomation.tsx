@@ -80,13 +80,31 @@ const AiAutomation = () => {
                 <div className="w-10 h-10 rounded-lg bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4 group-hover:bg-brand-yellow group-hover:text-brand-bg transition-colors">
                   {icons[i]}
                 </div>
-                <p className="type-capability flex items-start gap-2 font-sans text-[15px] font-medium leading-[1.65] normal-case">
-                  <span className="text-brand-yellow">→</span>
+                <p className="type-capability flex items-start gap-3 font-sans text-[15px] font-medium leading-[1.65] normal-case">
+                  <span className="text-brand-yellow shrink-0 mt-[2px]">→</span>
                   {t(`capabilities.${i}`)}
                 </p>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+          >
+            <a
+              href="https://calendar.app.google/SkMr99BXaF5DhGn98"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-brand-yellow text-brand-bg font-display font-bold text-sm uppercase tracking-wider px-6 py-3 rounded-full hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(212,217,63,0.2)]"
+            >
+              {t("cta_text")} →
+            </a>
+            <span className="text-neutral-500 text-sm">{t("cta_sub")}</span>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -68,7 +68,7 @@
       {
         "number": "04",
         "icon": "🛠",
-        "title": "Male Prilagođene Aplikacije",
+        "title": "Prilagođene Aplikacije",
         "description": "Lagani prilagođeni alati i interne aplikacije izgrađene prema tvom točnom radnom procesu — bez nepotrebnog softvera, samo ono što trebaš."
       }
     ]
@@ -86,7 +86,9 @@
       "AI-potpomognuti sadržajni procesi",
       "Prilagođene reporting nadzorne ploče",
       "Webhook i API integracije"
-    ]
+    ],
+    "cta_text": "Automatiziraj Tvoj Biznis",
+    "cta_sub": "Besplatni 30-min discovery poziv"
   },
   "why": {
     "eyebrow": "Zašto Kyro Studio",
@@ -96,7 +98,7 @@
       { "value": "3×",  "label": "Ciljani povrat investicije" },
       { "value": "80%", "label": "Automatiziranih zadataka" },
       { "value": "14d", "label": "Do prvih rezultata" },
-      { "value": "∞",   "label": "Potencijal rasta" }
+      { "value": "24/7", "label": "Sustavi rade" }
     ],
     "stats_disclaimer": "Temeljeno na ciljevima i benchmarkovima kroz projekte klijenata.",
     "bullets": [
@@ -115,22 +117,22 @@
       {
         "number": "Korak 01",
         "title": "Istraživanje",
-        "description": "Dubinski analiziramo tvoj poslovni model, ciljeve i aktualna uska grla kako bismo mapirali prilike."
+        "description": "Dubinski analiziramo tvoj poslovni model, ciljeve i aktualna uska grla kako bismo mapirali prilike. — 1. tjedan"
       },
       {
         "number": "Korak 02",
         "title": "Strategija",
-        "description": "Dizajniramo prilagođenu roadmapu koja kombinira web, marketing i AI automatizaciju za maksimalni učinak."
+        "description": "Dizajniramo prilagođenu roadmapu koja kombinira web, marketing i AI automatizaciju za maksimalni učinak. — 1.–2. tjedan"
       },
       {
         "number": "Korak 03",
         "title": "Izgradnja i Lansiranje",
-        "description": "Gradimo, automatiziramo i idemo uživo brzo. Vidjet ćeš stvarne rezultate unutar prvih dva tjedna."
+        "description": "Gradimo, automatiziramo i idemo uživo brzo. Vidjet ćeš stvarne rezultate unutar prvih dva tjedna. — 2.–4. tjedan"
       },
       {
         "number": "Korak 04",
         "title": "Optimizacija",
-        "description": "Kontinuirana iteracija i praćenje performansi za složen rast kroz vrijeme."
+        "description": "Kontinuirana iteracija i praćenje performansi za složen rast kroz vrijeme. — Kontinuirano"
       }
     ]
   },
@@ -164,6 +166,7 @@
   "footer": {
     "tagline": "Web · Marketing · AI Automatizacija",
     "copyright": "© 2025 Kyro Studio. Sva prava pridržana.",
+    "contact": "Kontakt",
     "legal": {
       "privacy": "Pravila privatnosti",
       "terms": "Uvjeti korištenja"

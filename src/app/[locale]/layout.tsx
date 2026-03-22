@@ -11,8 +11,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'meta' });
 
   return {
+    metadataBase: new URL('https://kyrostudio.eu'),
     title: t('title'),
     description: t('description'),
+    robots: { index: true, follow: true },
+    alternates: {
+      canonical: `https://kyrostudio.eu/${locale}`,
+      languages: {
+        'en': 'https://kyrostudio.eu/en',
+        'hr': 'https://kyrostudio.eu/hr',
+      },
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
@@ -25,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
           url: '/og-image.png',
           width: 1200,
           height: 630,
-          alt: 'Kyro Studio'
+          alt: 'Kyro Studio — Web Design, Marketing & AI Automation'
         }
       ]
     },
@@ -48,24 +57,31 @@ export default async function LocaleLayout({
   const { locale } = await params;
   const messages = await getMessages();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Kyro Studio",
+    "url": "https://kyrostudio.eu",
+    "email": "hello@kyrostudio.eu",
+    "description": "Web design, performance marketing and AI automation agency.",
+    "areaServed": "Worldwide",
+    "serviceType": [
+      "Web Design",
+      "Performance Marketing",
+      "AI Automation",
+      "Custom Applications"
+    ],
+    "sameAs": [
+      "https://linkedin.com/company/kyrostudio",
+      "https://instagram.com/kyro.studio"
+    ],
+  };
+
   return (
     <>
-      {/* Google Tag Manager */}
       <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX'}');`,
-        }}
-      />
-      {/* Google Tag Manager (noscript) */}
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX'}"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <NextIntlClientProvider messages={messages} locale={locale}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

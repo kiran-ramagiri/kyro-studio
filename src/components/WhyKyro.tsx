@@ -12,7 +12,7 @@ const WhyKyro = () => {
     { value: 3, suffix: "×", label: t("stats.0.label") },
     { value: 80, suffix: "%", label: t("stats.1.label") },
     { value: 14, suffix: "d", label: t("stats.2.label") },
-    { value: 100, isInfinity: true, label: t("stats.3.label") },
+    { value: 0, staticValue: "24/7", label: t("stats.3.label") },
   ];
 
   const bullets = [
@@ -36,8 +36,8 @@ const WhyKyro = () => {
                 className="absolute left-0 top-0 w-1 bg-brand-yellow transition-all duration-300"
               />
               <div className="type-stat text-white mb-2 font-display text-[48px] font-black leading-[1.0] text-brand-yellow">
-                {stat.isInfinity ? (
-                  <span>∞</span>
+                {stat.staticValue ? (
+                  <span>{stat.staticValue}</span>
                 ) : (
                   <Counter value={stat.value} suffix={stat.suffix} />
                 )}

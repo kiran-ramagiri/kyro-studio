@@ -6,13 +6,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const loadGTM = () => {
+  if (typeof window === "undefined" || document.getElementById("gtm-script")) return;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
+  const script = document.createElement("script");
+  script.id = "gtm-script";
+  script.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','${gtmId}');`;
+  document.head.appendChild(script);
+};
+
 const CookieBanner = () => {
   const t = useTranslations("cookie");
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
-    if (!consent) {
+    if (consent === "all") {
+      loadGTM();
+    } else if (!consent) {
       const timer = setTimeout(() => setShow(true), 2000);
       return () => clearTimeout(timer);
     }
@@ -21,14 +36,7 @@ const CookieBanner = () => {
   const handleConsent = (level: "all" | "none") => {
     localStorage.setItem("cookie_consent", level);
     setShow(false);
-    
-    // GTM Consent handle
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: "consent_update",
-        consent_level: level
-      });
-    }
+    if (level === "all") loadGTM();
   };
 
   return (

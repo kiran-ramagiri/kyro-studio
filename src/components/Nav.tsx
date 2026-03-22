@@ -36,7 +36,7 @@ const Nav = () => {
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { rootMargin: "-30% 0px -60% 0px" }
+        { threshold: 0.4 }
       );
       obs.observe(el);
       observers.push(obs);
@@ -66,9 +66,15 @@ const Nav = () => {
         isScrolled ? "glass dark:glass shadow-lg py-3" : "bg-transparent"
       )}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[999] bg-[#D4D93F] text-[#08080E] px-4 py-2 rounded font-bold text-sm"
+      >
+        Skip to main content
+      </a>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href={`/${locale}`} className="relative h-8 w-24">
+        <Link href={`/${locale}`} className="relative h-8 w-24" aria-label="Kyro Studio — Go to homepage">
           <Image
             src="/logo.svg"
             alt="Kyro Studio Logo"
@@ -101,7 +107,9 @@ const Nav = () => {
           {/* Language switcher with tooltip */}
           <div className="relative group">
             <button
+              type="button"
               onClick={toggleLocale}
+              aria-label={locale === "en" ? "Switch language to Croatian" : "Switch language to English"}
               className="flex items-center space-x-1 px-3 py-1.5 rounded-full border border-current text-xs font-bold uppercase hover:bg-white hover:text-black dark:hover:bg-brand-yellow dark:hover:text-black transition-all"
             >
               <Globe className="w-3.5 h-3.5" />
@@ -118,6 +126,9 @@ const Nav = () => {
         <button
           className="lg:hidden p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -130,6 +141,7 @@ const Nav = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            id="mobile-menu"
             className="fixed inset-0 top-[70px] bg-brand-bg/95 backdrop-blur-xl z-50 flex flex-col p-8 space-y-6 lg:hidden"
           >
             {navLinks.map((link) => (
@@ -147,7 +159,9 @@ const Nav = () => {
             ))}
             <div className="pt-6 border-t border-white/10 flex flex-col space-y-6">
               <button
+                type="button"
                 onClick={toggleLocale}
+                aria-label={locale === "en" ? "Switch language to Croatian" : "Switch language to English"}
                 className="flex items-center space-x-2 text-xl"
               >
                 <Globe />

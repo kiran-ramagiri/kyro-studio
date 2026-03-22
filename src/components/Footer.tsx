@@ -44,6 +44,7 @@ const Footer = () => {
                   key={social.name}
                   href={social.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-brand-yellow hover:text-brand-yellow transition-all"
                 >
                   {social.icon}
@@ -62,6 +63,7 @@ const Footer = () => {
               <Link href="#services" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Services</Link>
               <Link href="#why-kyro" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Why Kyro</Link>
               <Link href="#process" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">Process</Link>
+              <Link href="#contact" className="type-nav text-neutral-400 hover:text-brand-yellow transition-colors font-sans text-sm font-normal leading-[1.5]">{t("contact")}</Link>
             </div>
           </div>
         </div>

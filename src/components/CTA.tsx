@@ -182,6 +182,12 @@ const CTA = () => {
                   {status === "loading" ? t("form.sending") : t("form.submit")}
                   {status !== "loading" && <Send className="w-4 h-4" />}
                 </button>
+                <p className="text-xs text-neutral-500 mt-3 text-center">
+                  By submitting this form, you agree to our{' '}
+                  <a href="/en/legal/privacy" className="text-[#D4D93F] underline hover:no-underline">
+                    Privacy Policy
+                  </a>.
+                </p>
               </form>
             )}
           </motion.div>

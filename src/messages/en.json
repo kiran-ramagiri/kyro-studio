@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Kyro Studio - Marketing & AI Automation",
-    "description": "AI-powered growth for ambitious brands. We build the systems that scale your business.",
+    "description": "Kyro Studio builds custom websites, performance marketing campaigns and AI automation systems using Make, Zapier and n8n. Based in Croatia, working globally.",
     "og_image_alt": "Kyro Studio — Web Design, Marketing & AI Automation"
   },
   "nav": {
@@ -68,7 +68,7 @@
       {
         "number": "04",
         "icon": "🛠",
-        "title": "Small Custom Applications",
+        "title": "Custom Applications",
         "description": "Lightweight custom tools and internal apps built around your exact workflow — no bloated software, just what you need."
       }
     ]
@@ -86,7 +86,9 @@
       "AI-powered content pipelines",
       "Custom reporting dashboards",
       "Webhook & API integrations"
-    ]
+    ],
+    "cta_text": "Automate Your Business",
+    "cta_sub": "Free 30-min discovery call"
   },
   "why": {
     "eyebrow": "Why Kyro Studio",
@@ -96,7 +98,7 @@
       { "value": "3×",  "label": "Average ROI Target" },
       { "value": "80%", "label": "Tasks Automated" },
       { "value": "14d", "label": "To First Results" },
-      { "value": "∞",   "label": "Scale Potential" }
+      { "value": "24/7", "label": "Systems Running" }
     ],
     "stats_disclaimer": "Based on targets and benchmarks across client projects.",
     "bullets": [
@@ -115,22 +117,22 @@
       {
         "number": "Step 01",
         "title": "Discovery",
-        "description": "We deep-dive into your business, goals, and current bottlenecks to map the opportunity."
+        "description": "We deep-dive into your business, goals, and current bottlenecks to map the opportunity. — Week 1"
       },
       {
         "number": "Step 02",
         "title": "Strategy",
-        "description": "We design a custom roadmap combining web, marketing and AI automation for maximum impact."
+        "description": "We design a custom roadmap combining web, marketing and AI automation for maximum impact. — Week 1–2"
       },
       {
         "number": "Step 03",
         "title": "Build & Launch",
-        "description": "We build, automate and go live fast. You'll see real output within the first two weeks."
+        "description": "We build, automate and go live fast. You'll see real output within the first two weeks. — Week 2–4"
       },
       {
         "number": "Step 04",
         "title": "Optimize",
-        "description": "Continuous iteration and performance monitoring to compound your results over time."
+        "description": "Continuous iteration and performance monitoring to compound your results over time. — Ongoing"
       }
     ]
   },
@@ -164,6 +166,7 @@
   "footer": {
     "tagline": "Web · Marketing · AI Automation",
     "copyright": "© 2025 Kyro Studio. All rights reserved.",
+    "contact": "Contact",
     "legal": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"

@@ -40,7 +40,7 @@ const Process = () => {
           {/* Connector Line (Desktop) */}
           <div className="hidden lg:block absolute top-[12px] left-[5%] right-[5%] h-[2px] bg-gradient-to-r from-brand-yellow/0 via-brand-yellow to-brand-yellow/0 z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 relative z-10">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
@@ -48,20 +48,22 @@ const Process = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="flex flex-col items-center text-center group"
+                className="group flex flex-row lg:flex-col items-start lg:items-center gap-6 lg:gap-0 border-l-2 border-brand-yellow/30 pl-6 py-2 lg:border-l-0 lg:pl-0 lg:py-0 lg:text-center"
               >
                 {/* Dot */}
-                <div className="w-6 h-6 rounded-full bg-brand-yellow mb-8 shadow-[0_0_15px_rgba(212,217,63,0.6)] group-hover:scale-150 transition-transform duration-300" />
-                
-                <span className="type-eyebrow text-neutral-500 mb-2 font-sans text-xs font-bold tracking-[0.12em] uppercase">
-                  {step.number}
-                </span>
-                <h3 className="type-h3-sm mb-4 text-white font-display text-2xl font-normal leading-[1.2] tracking-[-0.025em] uppercase">
-                  {step.title}
-                </h3>
-                <p className="type-body text-neutral-400 group-hover:text-neutral-300 transition-colors font-sans text-base font-normal leading-[1.65] text-center md:text-left">
-                  {step.desc}
-                </p>
+                <div className="w-5 h-5 lg:w-6 lg:h-6 shrink-0 rounded-full bg-brand-yellow lg:mb-8 shadow-[0_0_15px_rgba(212,217,63,0.6)] group-hover:scale-150 transition-transform duration-300" />
+
+                <div className="flex flex-col">
+                  <span className="type-eyebrow text-neutral-500 mb-2 font-sans text-xs font-bold tracking-[0.12em] uppercase">
+                    {step.number}
+                  </span>
+                  <h3 className="type-h3-sm mb-2 lg:mb-4 text-white font-display text-xl lg:text-2xl font-normal leading-[1.2] tracking-[-0.025em] uppercase">
+                    {step.title}
+                  </h3>
+                  <p className="type-body text-neutral-400 group-hover:text-neutral-300 transition-colors font-sans text-base font-normal leading-[1.65]">
+                    {step.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

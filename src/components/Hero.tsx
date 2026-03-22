@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100svh] max-h-[100svh] w-full flex items-center pt-28 overflow-hidden"
+      className="relative h-[100svh] max-h-[100svh] w-full overflow-hidden"
     >
       {/* Animated Background Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -71,9 +71,9 @@ const Hero = () => {
         <div className="absolute inset-0 opacity-[0.03] bg-[url('/dot-pattern.png')] bg-repeat" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full h-full pt-20 pb-12">
         {/* Left Column: Content */}
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center h-full">
           <motion.p
             custom={0} initial="hidden" animate="visible" variants={fadeUp}
             className="type-eyebrow text-brand-yellow mb-6 font-sans text-xs font-bold tracking-[0.12em] uppercase"
@@ -124,27 +124,48 @@ const Hero = () => {
 
           <motion.div
             custom={3} initial="hidden" animate="visible" variants={fadeUp}
-            className="flex flex-col sm:flex-row gap-5 mt-10"
+            className="flex flex-col sm:flex-row gap-4 mt-10"
           >
             <Link
               href="https://calendar.app.google/SkMr99BXaF5DhGn98"
               target="_blank"
-              className="group bg-brand-yellow text-brand-bg px-8 py-4 rounded-full type-button font-display text-base font-bold leading-[1.5] tracking-[-0.025em] uppercase flex items-center justify-center gap-2 hover:scale-105 transition-all shadow-[0_0_30px_rgba(212,217,63,0.3)]"
+              className="group w-full sm:w-auto bg-brand-yellow text-brand-bg px-8 py-4 rounded-full type-button font-display text-base font-bold leading-[1.5] tracking-[-0.025em] uppercase flex items-center justify-center gap-2 hover:scale-105 transition-all shadow-[0_0_30px_rgba(212,217,63,0.3)]"
             >
               {t("cta_primary")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#services"
-              className="px-8 py-4 rounded-full border border-white/20 text-white type-button font-display text-base font-bold leading-[1.5] tracking-[-0.025em] uppercase flex items-center justify-center hover:bg-white hover:text-black transition-all"
+              className="w-full sm:w-auto px-8 py-3 sm:py-4 rounded-full border border-white/20 text-white type-button font-display text-sm sm:text-base font-bold leading-[1.5] tracking-[-0.025em] uppercase flex items-center justify-center hover:bg-white hover:text-black transition-all"
             >
               {t("cta_secondary")}
             </Link>
           </motion.div>
+
+          {/* Mobile Stats Strip */}
+          <motion.div
+            custom={4} initial="hidden" animate="visible" variants={fadeUp}
+            className="flex gap-6 mt-8 lg:hidden"
+          >
+            <div className="flex flex-col">
+              <span className="text-brand-yellow font-display font-bold text-xl leading-tight">+240%</span>
+              <span className="text-neutral-500 text-[10px] uppercase tracking-wider mt-1">ROI</span>
+            </div>
+            <div className="w-px bg-white/10 self-stretch" />
+            <div className="flex flex-col">
+              <span className="text-brand-yellow font-display font-bold text-xl leading-tight">120+</span>
+              <span className="text-neutral-500 text-[10px] uppercase tracking-wider mt-1">Tasks/Mo</span>
+            </div>
+            <div className="w-px bg-white/10 self-stretch" />
+            <div className="flex flex-col">
+              <span className="text-brand-yellow font-display font-bold text-xl leading-tight">40hrs</span>
+              <span className="text-neutral-500 text-[10px] uppercase tracking-wider mt-1">Saved/Wk</span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Right Column: Logo + Orbit Visual */}
-        <div className="hidden lg:flex relative justify-center items-center h-[580px]">
+        <div className="hidden lg:flex relative justify-center items-center h-full">
           {/* Background glow */}
           <div className="absolute inset-0 bg-brand-yellow/5 rounded-full blur-[100px] pointer-events-none" />
 

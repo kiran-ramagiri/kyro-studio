@@ -9,13 +9,15 @@ import CTA from "@/components/CTA";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
-      <Hero />
-      <Marquee />
-      <Services />
-      <AiAutomation />
-      <WhyKyro />
-      <Process />
-      <CTA />
+      <main id="main-content">
+        <Hero />
+        <Marquee />
+        <Services />
+        <AiAutomation />
+        <WhyKyro />
+        <Process />
+        <CTA />
+      </main>
     </div>
   );
 }

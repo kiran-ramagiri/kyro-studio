@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const Marquee = () => {
   const t = useTranslations("marquee");
+  const shouldReduceMotion = useReducedMotion();
   const items = [
     t("items.0"),
     t("items.1"),
@@ -17,10 +18,10 @@ const Marquee = () => {
   const duplicatedItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="bg-brand-yellow py-4 overflow-hidden select-none border-y border-brand-yellow">
+    <div aria-hidden="true" className="bg-brand-yellow py-4 overflow-hidden select-none border-y border-brand-yellow">
       <div className="flex whitespace-nowrap">
         <motion.div
-          animate={{ x: [0, -1000] }}
+          animate={shouldReduceMotion ? undefined : { x: [0, -1000] }}
           transition={{
             duration: 30,
             repeat: Infinity,
