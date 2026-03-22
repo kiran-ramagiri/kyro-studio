@@ -6,6 +6,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const GA4_ID = "G-SCRQZF2PGD";
+
+const loadGA4 = () => {
+  if (typeof window === "undefined" || document.getElementById("ga4-script")) return;
+  const src = document.createElement("script");
+  src.id = "ga4-script";
+  src.async = true;
+  src.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+  document.head.appendChild(src);
+
+  const cfg = document.createElement("script");
+  cfg.id = "ga4-config";
+  cfg.innerHTML = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_ID}');`;
+  document.head.appendChild(cfg);
+};
+
 const loadGTM = () => {
   if (typeof window === "undefined" || document.getElementById("gtm-script")) return;
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
@@ -26,6 +42,7 @@ const CookieBanner = () => {
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (consent === "all") {
+      loadGA4();
       loadGTM();
     } else if (!consent) {
       const timer = setTimeout(() => setShow(true), 2000);
@@ -36,7 +53,7 @@ const CookieBanner = () => {
   const handleConsent = (level: "all" | "none") => {
     localStorage.setItem("cookie_consent", level);
     setShow(false);
-    if (level === "all") loadGTM();
+    if (level === "all") { loadGA4(); loadGTM(); }
   };
 
   return (
