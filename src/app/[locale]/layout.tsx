@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: t('title'),
     description: t('description'),
     robots: { index: true, follow: true },
+    other: {
+      'facebook-domain-verification': 'p4nfkb4bl3fl916llun75na20wgr7u',
+    },
     alternates: {
       canonical: `https://kyrostudio.eu/${locale}`,
       languages: {
