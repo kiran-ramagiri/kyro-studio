@@ -75,8 +75,8 @@ export default async function LocaleLayout({
       "Custom Applications"
     ],
     "sameAs": [
-      "https://linkedin.com/company/kyrostudio",
-      "https://instagram.com/kyro.studio"
+      "https://www.linkedin.com/company/kyrostudio-agency/",
+      "https://www.instagram.com/kyrostudio.eu/"
     ],
   };
 

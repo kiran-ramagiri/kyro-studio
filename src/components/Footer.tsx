@@ -11,8 +11,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "LinkedIn", href: "https://linkedin.com/company/kyrostudio", icon: <Linkedin className="w-5 h-5" /> },
-    { name: "Instagram", href: "https://instagram.com/kyro.studio", icon: <Instagram className="w-5 h-5" /> },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/kyrostudio-agency/", icon: <Linkedin className="w-5 h-5" /> },
+    { name: "Instagram", href: "https://www.instagram.com/kyrostudio.eu/", icon: <Instagram className="w-5 h-5" /> },
     { name: "Email", href: "mailto:hello@kyrostudio.eu", icon: <Mail className="w-5 h-5" /> },
   ];
 

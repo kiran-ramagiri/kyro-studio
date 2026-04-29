@@ -172,8 +172,8 @@
       "terms": "Terms of Service"
     },
     "links": [
-      { "label": "LinkedIn",  "href": "PLACEHOLDER_LINKEDIN" },
-      { "label": "Instagram", "href": "PLACEHOLDER_INSTAGRAM" },
+      { "label": "LinkedIn",  "href": "https://www.linkedin.com/company/kyrostudio-agency/" },
+      { "label": "Instagram", "href": "https://www.instagram.com/kyrostudio.eu/" },
       { "label": "hello@kyrostudio.eu", "href": "mailto:hello@kyrostudio.eu" }
     ]
   },
